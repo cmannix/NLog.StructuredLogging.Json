@@ -68,6 +68,7 @@
     <Compile Include="EndToEnd\ViaLayout\NestedExceptionEndToEndTestsInFlattenedJson.cs" />
     <Compile Include="EndToEnd\ViaLayout\WithFailingLayout.cs" />
     <Compile Include="FlattenedJsonCanSerializePushNotification.cs" />
+    <Compile Include="FlattenedJsonCanSerializeToFile.cs" />
     <Compile Include="Hashing\HasherTests.cs" />
     <Compile Include="Helpers\ConvertExceptionToFingerprintTests.cs" />
     <Compile Include="Helpers\ConvertJsonTests.cs" />
