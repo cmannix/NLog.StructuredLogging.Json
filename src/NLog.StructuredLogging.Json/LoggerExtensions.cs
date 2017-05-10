@@ -1,9 +1,9 @@
 ﻿﻿using System;
- using System.Collections;
- using System.Collections.Generic;
- using System.Diagnostics;
+using System.Collections;
+using System.Diagnostics;
 ﻿using System.Linq;
-﻿using NLog.StructuredLogging.Json.Helpers;
+using System.Reflection;
+using NLog.StructuredLogging.Json.Helpers;
 
 namespace NLog.StructuredLogging.Json
 {
@@ -120,7 +120,6 @@ namespace NLog.StructuredLogging.Json
         {
             foreach (var contextItemName in MappedDiagnosticsLogicalContext.GetNames())
             {
-                var value = MappedDiagnosticsLogicalContext.Get(contextItemName);
                 var key = contextItemName;
                 if (log.Properties.ContainsKey(contextItemName))
                 {
@@ -129,15 +128,17 @@ namespace NLog.StructuredLogging.Json
 
                 if (!log.Properties.ContainsKey(key))
                 {
+                    var value = MappedDiagnosticsLogicalContext.Get(contextItemName);
                     log.Properties.Add(key, value);
                 }
             }
         }
 
+        private static readonly Type DictType = typeof(IDictionary);
+
         private static bool IsDictionary(object logProperties)
         {
-            var propsType = logProperties.GetType();
-            return typeof(IDictionary).IsAssignableFrom(propsType);
+            return DictType.IsAssignableFrom(logProperties.GetType().GetTypeInfo());
         }
     }
 }
