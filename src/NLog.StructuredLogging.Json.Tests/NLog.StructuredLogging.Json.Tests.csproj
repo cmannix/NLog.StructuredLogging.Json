@@ -99,6 +99,7 @@
     <Compile Include="Helpers\MapperExceptionDataTests.cs" />
     <Compile Include="Helpers\MapperExceptionLoggingTests.cs" />
     <Compile Include="Helpers\MapperDateTimeFormatTests.cs" />
+    <Compile Include="LoggerExtensionsContextTests.cs" />
     <Compile Include="NestedExceptionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\MapperStandardTests.cs" />
